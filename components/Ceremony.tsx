@@ -6,7 +6,7 @@ export default function Ceremony() {
     return (
         <div className="flex flex-col space-y-12 items-center w-full">
             <div className="flex-1 flex flex-col space-y-3 text-center">
-                <div className="text-5xl">St. Patrick's Catholic Church</div>
+                <div className="text-5xl">St. Patrick&apos;s Catholic Church</div>
                 <div className="font-medium">2:30p January 27, 2024</div>
                 <div className="font-medium">3716 Garden Ave, Miami Beach, FL 33140</div>
                 <div className="italic font-medium">*Transportation provided from ceremony to reception</div>
