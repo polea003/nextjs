@@ -85,7 +85,7 @@ export default function Home() {
             objectFit='contain'
           />
         </div>
-        <div className='overflow-x-hidden'>
+        <div>
           <div className='w-full flex flex-col items-center z-40'
               style={{ transform: `scale(${heartScale}) translateY(-${translateYHeart}px)` }}
           >
