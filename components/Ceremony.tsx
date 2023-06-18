@@ -5,21 +5,21 @@ import { Loader } from "@googlemaps/js-api-loader";
 export default function Ceremony() {
     return (
         <div className="flex flex-col space-y-12 items-center w-full">
-            <div className="flex-1 flex flex-col space-y-3 text-center">
+            <div className="flex-1 flex flex-col space-y-5 text-center">
                 <div className="text-5xl">St. Patrick&apos;s Catholic Church</div>
                 <div className="font-medium">2:30p January 27, 2024</div>
                 <div className="font-medium">3716 Garden Ave, Miami Beach, FL 33140</div>
                 <div className="italic font-medium">*Transportation provided from ceremony to reception</div>
             </div>
-            <div className="relative w-full lg:w-1/2 h-64 sm:h-96">
+            <div className="relative w-full lg:w-3/4 h-64 sm:h-[600px]">
                 <Image 
                 src="/St-Patrick.jpg"
                 alt=''
                 fill={true}
-                style={{ 'objectFit': "cover" }}
+                style={{ 'objectFit': "cover", objectPosition: "top" }}
                 />
             </div>
-            <div className="w-full lg:w-1/2 h-96 mx-2">
+            <div className="w-full lg:w-3/4 h-96 mx-2">
               <Map apiKey={process.env.NEXT_PUBLIC_MAPS_API_KEY} />
             </div>
         </div>

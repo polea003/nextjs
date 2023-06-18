@@ -35,10 +35,10 @@ export function FloatingNavBar({ show }) {
     <div
       className={`${
         show ? 'translate-y-0' : '-translate-y-full'
-      } drop-shadow-sm bg-white border-b-1 border-gray-500 fixed top-0 w-full transition-transform duration-500 ease-in-out flex justify-between z-50 items-center`}
+      } drop-shadow-sm bg-white border-b-1 border-gray-500 fixed top-0 w-screen transition-transform duration-500 ease-in-out flex justify-between z-50 items-center`}
     >
-      <div className="text-5xl pt-3 px-4" style={{ fontFamily: 'Copperplate'}}>P + S</div>
-      <div className='mr-4' onClick={handleClick}>
+      <div className="text-5xl pt-3 px-4 sm:px-5" style={{ fontFamily: 'Copperplate'}}>P + S</div>
+      <div className='pr-2 sm:pr-4' onClick={handleClick}>
         <IconButton
               edge="start"
               color="inherit"
@@ -53,10 +53,10 @@ export function FloatingNavBar({ show }) {
         open={open}
         onClose={handleClose}
         onClick={handleClose}
+        disableScrollLock={true}
         PaperProps={{
           elevation: 0,
           sx: {
-            overflow: 'visible',
             filter: 'drop-shadow(0px 2px 8px rgba(0,0,0,0.32))',
             mt: 5,
             '& .MuiAvatar-root': {

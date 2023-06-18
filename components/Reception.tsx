@@ -4,22 +4,14 @@ import { Loader } from "@googlemaps/js-api-loader";
 
 export default function Reception() {
     return (
-        <div className="flex flex-col items-center space-y-12 w-[500px]">
-            <div className="flex-1 flex flex-col space-y-3 text-center">
-                <div className="text-3xl" style={{ fontFamily: 'Lambency'}}>Seacoast Towers</div>
-                <div style={{ fontFamily: 'Cutive' }} className="font-medium">5p-11p January 27, 2024</div>
-                <div style={{ fontFamily: 'Cutive' }} className="font-medium">5161 Collins Ave, Miami Beach, FL 33140</div>
-                <div style={{ fontFamily: 'Cutive' }} className="font-medium">Formal Attire</div>
+        <div className="flex flex-col items-center space-y-12 w-full">
+            <div className="flex-1 flex flex-col space-y-5 text-center">
+                <div className="text-5xl">Seacoast Towers</div>
+                <div className="font-medium">5p-11p January 27, 2024</div>
+                <div className="font-medium">5161 Collins Ave, Miami Beach, FL 33140</div>
+                <div className="italic font-medium">Formal Attire</div>
             </div>
-            {/* <div className="relative w-full h-96">
-                <Image 
-                    src="/seacoast.jpeg"
-                    alt=''
-                    layout='fill'
-                    objectFit='contain'
-                />
-            </div> */}
-            <div className="relative w-full h-64">
+            <div className="relative w-full lg:w-3/4 h-64 sm:h-[600px]">
                 <Image 
                 src="/seacoast.jpeg"
                 alt=''
@@ -27,7 +19,7 @@ export default function Reception() {
                 style={{ 'objectFit': "cover" }}
                 />
             </div>
-            <div className="w-full h-96">
+            <div className="w-full lg:w-3/4 h-96">
               <Map apiKey={process.env.NEXT_PUBLIC_MAPS_API_KEY} />
             </div>
         </div>
