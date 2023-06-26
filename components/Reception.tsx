@@ -5,7 +5,7 @@ import { Loader } from "@googlemaps/js-api-loader";
 export default function Reception() {
     return (
         <div className="flex flex-col items-center space-y-12 w-full">
-            <div className="flex-1 flex flex-col space-y-5 text-center">
+            <div className="flex-1 flex flex-col space-y-5 text-center px-4">
                 <div className="text-5xl">Seacoast Towers</div>
                 <div className="font-medium">5p-11p January 27, 2024</div>
                 <div className="font-medium">5161 Collins Ave, Miami Beach, FL 33140</div>

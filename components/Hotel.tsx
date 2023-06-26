@@ -6,11 +6,13 @@ import { Button } from "@mui/material";
 export default function Hotel() {
     return (
         <div className="flex flex-col items-center space-y-12 w-full">
-            <div className="flex-1 flex flex-col space-y-5 text-center items-center">
+            <div className="flex-1 flex flex-col space-y-5 text-center items-center px-4">
                 <div className="text-5xl">The Loews Hotel Miami Beach</div>
                 <div className="font-medium">1601 Collins Ave, Miami Beach, FL 33139</div>
                 <div className="font-medium">Room block available</div>
-                <Button style={{ color: 'black', backgroundColor: 'white', width: '230px' }} variant="contained">Reserve</Button>
+                <a href="https://www.loewshotels.com/miami-beach/oleary-caldevilla-wedding" target="_blank">
+                  <Button style={{ color: 'black', backgroundColor: 'white', width: '230px' }} variant="contained">Reserve</Button>
+                </a>
                 <div className="font-medium italic">You're invited to consider the many neighboring hotels for alternative accommodations</div>
             </div>
             <div className="relative w-full lg:w-3/4 h-64 sm:h-[600px]">

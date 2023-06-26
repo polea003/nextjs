@@ -20,7 +20,7 @@ import PersonAdd from '@mui/icons-material/PersonAdd';
 import Settings from '@mui/icons-material/Settings';
 import Logout from '@mui/icons-material/Logout';
 
-export function FloatingNavBar({ show }) {
+export function FloatingNavBar({ show, setSelectedView }) {
 
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
@@ -82,37 +82,37 @@ export function FloatingNavBar({ show }) {
         transformOrigin={{ horizontal: 'right', vertical: 'top' }}
         anchorOrigin={{ horizontal: 'right', vertical: 'top' }}
       >
-        <MenuItem onClick={handleClose}>
+        <MenuItem onClick={() => { handleClose(); setSelectedView('ceremony') }}>
           <ListItemIcon>
             <ChurchIcon fontSize="small" />
           </ListItemIcon>
           Ceremony
         </MenuItem>
-        <MenuItem onClick={handleClose}>
+        <MenuItem onClick={() => { handleClose(); setSelectedView('reception') }}>
           <ListItemIcon>
             <CelebrationIcon fontSize="small" />
           </ListItemIcon>
           Reception
         </MenuItem>
-        <MenuItem onClick={handleClose}>
+        <MenuItem onClick={() => { handleClose(); setSelectedView('hotel') }}>
           <ListItemIcon>
             <BedIcon fontSize="small" />
           </ListItemIcon>
           Hotel
         </MenuItem>
-        <MenuItem onClick={handleClose}>
+        <MenuItem onClick={() => { handleClose(); setSelectedView('travel') }}>
           <ListItemIcon>
             <FlightIcon fontSize="small" />
           </ListItemIcon>
           Travel
         </MenuItem>
-        <MenuItem onClick={handleClose}>
+        <MenuItem onClick={() => { handleClose(); setSelectedView('registry') }}>
           <ListItemIcon>
             <CardGiftcardIcon fontSize="small" />
           </ListItemIcon>
           Registry
         </MenuItem>
-        <MenuItem onClick={handleClose}>
+        <MenuItem onClick={() => { handleClose(); setSelectedView('rsvp') }}>
           <ListItemIcon>
             <MailOutlineIcon fontSize="small" />
           </ListItemIcon>

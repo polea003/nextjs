@@ -4,7 +4,7 @@ import { Loader } from "@googlemaps/js-api-loader";
 
 export default function Travel() {
     return (
-        <div className="flex flex-col items-center space-y-12 w-[500px]">
+        <div className="flex flex-col items-center space-y-12 px-4">
             <div className="flex-1 flex flex-col space-y-6 text-center">
                 <div className="text-3xl sm:text-5xl">Airports</div>
                 <div className="flex flex-col space-y-1 text-2xl">
