@@ -106,6 +106,10 @@ export default function Home() {
           <div className="text-4xl" style={{ fontFamily: 'Copperplate'}}>Miami Beach, FL</div>
         </div>
       </div>
+      
+      <div id="story" className='w-full flex flex-col items-center bg-[#183642] text-2xl text-white py-40' style={{'fontFamily': 'Copperplate'}}>
+        <Story />
+      </div>
 
       <div id="ceremony" className='w-full flex flex-col items-center bg-[#A82428] text-2xl text-white py-40' style={{'fontFamily': 'Copperplate'}}>
         <Ceremony />

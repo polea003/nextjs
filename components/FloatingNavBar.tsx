@@ -13,6 +13,7 @@ import BedIcon from '@mui/icons-material/Bed';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import ListItemIcon from '@mui/material/ListItemIcon';
+import AutoStoriesOutlinedIcon from '@mui/icons-material/AutoStoriesOutlined';
 import Divider from '@mui/material/Divider';
 import Typography from '@mui/material/Typography';
 import Tooltip from '@mui/material/Tooltip';
@@ -82,6 +83,12 @@ export function FloatingNavBar({ show, setSelectedView }) {
         transformOrigin={{ horizontal: 'right', vertical: 'top' }}
         anchorOrigin={{ horizontal: 'right', vertical: 'top' }}
       >
+        <MenuItem onClick={() => { handleClose(); setSelectedView('story') }}>
+          <ListItemIcon>
+            <AutoStoriesOutlinedIcon fontSize="small" />
+          </ListItemIcon>
+          Our Story
+        </MenuItem>
         <MenuItem onClick={() => { handleClose(); setSelectedView('ceremony') }}>
           <ListItemIcon>
             <ChurchIcon fontSize="small" />
