@@ -9,7 +9,7 @@ export default function Reception() {
                 <div className="text-5xl">Seacoast Towers</div>
                 <div className="font-medium">5p-11p January 27, 2024</div>
                 <div className="font-medium">5161 Collins Ave, Miami Beach, FL 33140</div>
-                <div className="italic font-medium">Black Tie</div>
+                <div className="italic font-medium">Formal Attire / Black Tie</div>
             </div>
             <div className="relative w-full lg:w-3/4 h-64 sm:h-[600px]">
                 <Image 
