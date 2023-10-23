@@ -153,7 +153,6 @@ export default function VerticalLinearStepper() {
                         onChange={handleInputChange}
                         autoComplete="off"
                         label="Code"
-                        inputProps={{ maxLength: 4 }}
                         helperText={isWrongCode ? 'incorrect code' : ' '}
                     />
                     :
