@@ -42,7 +42,7 @@ export default function VerticalLinearStepper() {
 
   async function SubmitRSVP () {
     console.log('submitting rsvp')
-    const response = await fetch('http://localhost:3000/api/rsvp', {
+    const response = await fetch('https://www.sophiaandpatrick.com/api/rsvp', {
       method: 'POST',
       headers: {
           'Content-Type': 'application/json',
@@ -93,7 +93,7 @@ export default function VerticalLinearStepper() {
   }
 
   async function checkCode () {
-      const response = await fetch('http://localhost:3000/api/rsvp_codes', {
+      const response = await fetch('https://www.sophiaandpatrick.com/api/rsvp_codes', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
