@@ -197,11 +197,11 @@ export default function VerticalLinearStepper() {
                 </div>
                 <div>
                   <div className='text-sm pb-1 font-semibold text-gray-600'>Phone Number</div>
-                  <div>{completedGuests[guestToReview].phoneNumber || 'not provided'}</div>
+                  <div>{completedGuests[guestToReview].phoneNumber || 'Not Provided'}</div>
                 </div>
                 <div>
                   <div className='text-sm pb-1 font-semibold text-gray-600'>Email</div>
-                  <div>{completedGuests[guestToReview].email || 'not provided'}</div>
+                  <div>{completedGuests[guestToReview].email || 'Not Provided'}</div>
                 </div>
               </div>
             </>}
