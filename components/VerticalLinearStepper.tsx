@@ -98,7 +98,7 @@ export default function VerticalLinearStepper() {
         headers: {
             'Content-Type': 'application/json',
           },
-        body: JSON.stringify({ code: rsvpCode.toLowerCase() }),
+        body: JSON.stringify({ code: rsvpCode.toUpperCase() }),
       });
 
       if (response?.ok) {
