@@ -17,7 +17,7 @@ export default async function handler(
   const { rsvp, guests } = req.body;
 
   if (rsvp === 'declined') {
-    res.status(200).json({ message: "We've recieved your RSVP and are sorry that you can't make it!" }); 
+    return res.status(200).json({ message: "We've recieved your RSVP and are sorry that you can't make it!" }); 
   }
 
   if (!guests || guests.length === 0) {
