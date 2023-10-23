@@ -19,7 +19,8 @@ export default function handler(
       return res.status(400).json({ error: 'Code is required.' });
     }
 
-    var conString = "postgresql://poleary@localhost:5432/postgres"; //Can be found in the Details page
+    // var conString = "postgresql://poleary@localhost:5432/postgres"; //Can be found in the Details page
+    var conString = process.env.POSTGRE_CONNECTION_STRING; //Can be found in the Details page
     var client = new pg.Client(conString);
     client.connect(function(err) {
       if (err) {

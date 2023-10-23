@@ -131,7 +131,7 @@ export default function Home() {
         <Registry />
       </div>
 
-      <div id="rsvp" className='w-full flex flex-col items-center bg-[#FDF6ED] text-2xl py-96' style={{'fontFamily': 'Copperplate'}}>
+      <div id="rsvp" className='w-full flex flex-col items-center bg-[#FDF6ED] text-2xl py-48 min-h-screen' style={{'fontFamily': 'Copperplate'}}>
         <RSVP />
       </div>
 
