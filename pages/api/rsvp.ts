@@ -14,7 +14,11 @@ export default async function handler(
     return res.status(405).json({ error: 'Method not allowed.' });
   }
 
-  const { guests } = req.body;
+  const { rsvp, guests } = req.body;
+
+  if (rsvp === 'declined') {
+    res.status(200).json({ message: "We've recieved your RSVP and are sorry that you can't make it!" }); 
+  }
 
   if (!guests || guests.length === 0) {
     return res.status(400).json({ error: 'Guests data not provided.' });

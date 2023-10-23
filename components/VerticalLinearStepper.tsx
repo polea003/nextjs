@@ -11,6 +11,7 @@ import { useState, useEffect } from 'react';
 import RSVPForm from './RSVPForm';
 import BasicModal from './BasicModal';
 import _ from 'lodash'; 
+import RadioButtonsGroup from './RadioButtonsGroup';
 
 
 const steps = [
@@ -25,10 +26,11 @@ export default function VerticalLinearStepper() {
   const [isWrongCode, setIsWrongCode] = useState(false);
   const [guests, setGuests] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const handleOpenModal = () => setIsModalOpen(true);
-  const handleCloseModal = () => setIsModalOpen(false);
   const [guestToReview, setGuestToReview] = useState(null);
   const [isRSVPComplete, setIsRSVPComplete] = useState(false);
+  const [isAttending, setIsAttending] = useState(true);
+  const handleOpenModal = () => setIsModalOpen(true);
+  const handleCloseModal = () => setIsModalOpen(false);
 
 
 
@@ -36,8 +38,35 @@ export default function VerticalLinearStepper() {
 
   const selectedStep = rsvpCodeStatus === 'Success' ? isRSVPComplete ? 2 : 1 : 0;
 
+  function handleUpdateRSVPSelection (rsvpSelection) {
+    if (rsvpSelection === 'true') {
+      setIsAttending(true);
+    } else {
+      setIsAttending(false);
+    }
+  }
+
   function handleNextGuest () {
     setGuestToReview((oldGuestIndex) => oldGuestIndex + 1);
+  }
+
+  async function SubmitNegativeRSVP () {
+    const response = await fetch('/api/rsvp', {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json',
+        },
+      body: JSON.stringify({ rsvp: 'declined' }),
+    });
+
+    if (response?.ok) {
+        console.log('success');
+        setIsModalOpen(false);
+        setIsRSVPComplete(true);
+    }
+    else {
+        console.log('didnt work')
+    }
   }
 
   async function SubmitRSVP () {
@@ -156,11 +185,14 @@ export default function VerticalLinearStepper() {
                         helperText={isWrongCode ? 'incorrect code' : ' '}
                     />
                     :
-                    <div className='flex flex-col space-y-12 mt-6'>
-                        {numberOfGuests && guests.map((guest, index) => (
-                          <RSVPForm key={index} guest={guest} onGuestChange={(updatedGuest) => handleGuestChange(index, updatedGuest)} guestNumber={numberOfGuests > 1 && index + 1} />
-                        ))}
-                    </div>
+                    <>
+                      <RadioButtonsGroup handleChange={handleUpdateRSVPSelection} isAttending={isAttending} />
+                      {isAttending && <div className='flex flex-col space-y-12 mt-6'>
+                          {numberOfGuests && guests.map((guest, index) => (
+                            <RSVPForm key={index} onGuestChange={(updatedGuest) => handleGuestChange(index, updatedGuest)} guestNumber={numberOfGuests > 1 && index + 1} />
+                          ))}
+                      </div>}
+                    </>
                 }
                 <Button
                     className='my-4'
@@ -175,14 +207,14 @@ export default function VerticalLinearStepper() {
           </Step>
         ))}
       </Stepper>
-      {isRSVPComplete && <div className='text-normal pt-10'>You're all Set! We can't wait to see you in Miami!</div>}
+      {isRSVPComplete && <div className='text-normal pt-10'>{isAttending ? "You're all Set! We can't wait to see you in Miami!" : "We're so sorry you won't be there but we understand."}</div>}
       <BasicModal
         open={isModalOpen}
         handleClose={handleCloseModal}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-        <div className='flex flex-col'>
+        {isAttending ? <div className='flex flex-col'>
           <div className='flex flex-col space-y-6 mt-4'>
             {guestToReview !== null && <>
               <div className='font-semibold'>{`Guest ${guestToReview + 1}`}</div>
@@ -234,7 +266,31 @@ export default function VerticalLinearStepper() {
                 }
             </div>
           </div>
+        </div> :
+        <div className='flex flex-col'>
+        <div className='flex flex-col space-y-6 mt-4'>
+          <div>We will miss you! Are you sure you won't be there?</div>
+          <div className='flex justify-between'>
+              <Button
+                  className='my-4'
+                  type='button'
+                  onClick={handleCloseModal}
+              >
+                Cancel
+              </Button>
+              <Button
+                  className='my-4'
+                  type='button'
+                  variant='contained'
+                  style={{ color: 'white', backgroundColor: '#183642', width: '230px' }}
+                  onClick={SubmitNegativeRSVP}
+              >
+                Submit RSVP
+              </Button>
+          </div>
         </div>
+      </div>
+        }
       </BasicModal>
     </Box>
   );
