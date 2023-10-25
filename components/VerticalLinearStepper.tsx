@@ -189,7 +189,7 @@ export default function VerticalLinearStepper() {
                     :
                     <>
                       <RadioButtonsGroup handleChange={handleUpdateRSVPSelection} isAttending={isAttending} />
-                      {isAttending && <div className='flex flex-col space-y-12 mt-6'>
+                      {isAttending && <div className='flex flex-col space-y-12 my-6'>
                           {numberOfGuests && guests.map((guest, index) => (
                             <RSVPForm key={index} onGuestChange={(updatedGuest) => handleGuestChange(index, updatedGuest)} guestNumber={numberOfGuests > 1 && index + 1} />
                           ))}
