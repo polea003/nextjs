@@ -105,7 +105,7 @@ export default function VerticalLinearStepper() {
       dinnerSelection: '',
       phoneNumber: '',
       email: '',
-      rsvpCode: rsvpCode
+      rsvpCode: rsvpCode.toUpperCase()
     }));
     setGuests(blankGuests);
   }, [numberOfGuests]);
@@ -166,7 +166,7 @@ export default function VerticalLinearStepper() {
               optional={
                 index === 1 && rsvpCodeStatus === "Success" && !isRSVPComplete ? (
                   <Typography>{numberOfGuests && numberOfGuests > 1 ? `Enter up to ${numberOfGuests} below` : `Please provide your information below`}</Typography>
-                ) : index === 0 && selectedStep === 0 ? <Typography>Enter the 4-digit code found on the back of your RSVP card</Typography> : null
+                ) : index === 0 && selectedStep === 0 ? <Typography>Enter the secret code on the back of your RSVP card</Typography> : null
               }
             >
               <p className="font-medium text-lg text-blue-900">{step}</p>
