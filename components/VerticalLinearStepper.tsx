@@ -189,21 +189,22 @@ export default function VerticalLinearStepper() {
                     :
                     <>
                       <RadioButtonsGroup handleChange={handleUpdateRSVPSelection} isAttending={isAttending} />
-                      {isAttending && <div className='flex flex-col space-y-12 my-6'>
+                      {isAttending && <div className='flex flex-col space-y-12 mt-6'>
                           {numberOfGuests && guests.map((guest, index) => (
                             <RSVPForm key={index} onGuestChange={(updatedGuest) => handleGuestChange(index, updatedGuest)} guestNumber={numberOfGuests > 1 && index + 1} />
                           ))}
                       </div>}
                     </>
                 }
-                <Button
-                    className='my-4'
-                    type='submit'
-                    variant="contained"
-                    style={{ color: 'white', backgroundColor: '#183642', width: '230px' }}
-                >
-                {rsvpCodeStatus === 'Pending...' ? rsvpCodeStatus : index === 0 ? 'Submit' : 'Send RSVP'}
-                </Button>
+                <div className='my-4'>
+                  <Button
+                      type='submit'
+                      variant="contained"
+                      style={{ color: 'white', backgroundColor: '#183642', width: '230px' }}
+                  >
+                  {rsvpCodeStatus === 'Pending...' ? rsvpCodeStatus : index === 0 ? 'Submit' : 'Send RSVP'}
+                  </Button>
+                </div>
               </form>
             </StepContent>
           </Step>
