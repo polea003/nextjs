@@ -31,6 +31,7 @@ export default function VerticalLinearStepper() {
   const [isAttending, setIsAttending] = useState(true);
   const handleOpenModal = () => setIsModalOpen(true);
   const handleCloseModal = () => setIsModalOpen(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
 
 
@@ -56,7 +57,7 @@ export default function VerticalLinearStepper() {
       headers: {
           'Content-Type': 'application/json',
         },
-      body: JSON.stringify({ rsvp: 'declined' }),
+      body: JSON.stringify({ rsvp: 'declined', rsvpCode: rsvpCode.toUpperCase() }),
     });
 
     if (response?.ok) {
@@ -65,7 +66,7 @@ export default function VerticalLinearStepper() {
         setIsRSVPComplete(true);
     }
     else {
-        console.log('didnt work')
+      console.log('didnt work')
     }
   }
 
@@ -76,7 +77,7 @@ export default function VerticalLinearStepper() {
       headers: {
           'Content-Type': 'application/json',
         },
-      body: JSON.stringify({ guests: completedGuests }),
+      body: JSON.stringify({ guests: completedGuests, rsvpCode: rsvpCode.toUpperCase() }),
     });
 
     if (response?.ok) {
@@ -137,7 +138,8 @@ export default function VerticalLinearStepper() {
           setRsvpCodeStatus('Success')
       }
       else {
-          console.log('wrong code')
+          if (response.status === 409) setErrorMessage('This code is used already')
+          else setErrorMessage('Incorrect code')
           handleWrongCode()
           setRsvpCodeStatus('')
       }
@@ -182,7 +184,7 @@ export default function VerticalLinearStepper() {
                         onChange={handleInputChange}
                         autoComplete="off"
                         label="Code"
-                        helperText={isWrongCode ? 'incorrect code' : ' '}
+                        helperText={isWrongCode ? errorMessage : ' '}
                     />
                     :
                     <>
