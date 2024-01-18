@@ -135,14 +135,14 @@ export default function Home() {
         <div className='flex flex-col lg:flex-row lg:space-x-12'>
           <div className='w-96 h-[560px] relative'>
             <Image
-              src="/thanks-for-being-here.jpg"
+              src="/thanks-for-being-here-01.jpg"
               alt=""
               fill
             />
           </div>
           <div className='w-96 h-[560px] relative'>
             <Image
-              src="/wedding-timeline.jpg"
+              src="/wedding-timeline-01.jpg"
               alt=""
               fill
             />
