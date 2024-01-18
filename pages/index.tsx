@@ -131,6 +131,25 @@ export default function Home() {
         <Registry />
       </div>
 
+      <div id="timeline" className='w-full flex flex-col items-center bg-black text-2xl text-white py-40' style={{'fontFamily': 'Copperplate'}}>
+        <div className='flex flex-col lg:flex-row lg:space-x-12'>
+          <div className='w-96 h-[560px] relative'>
+            <Image
+              src="/thanks-for-being-here.jpg"
+              alt=""
+              fill
+            />
+          </div>
+          <div className='w-96 h-[560px] relative'>
+            <Image
+              src="/wedding-timeline.jpg"
+              alt=""
+              fill
+            />
+          </div>
+        </div>
+      </div>
+
       <div id="rsvp" className='w-full flex flex-col items-center bg-[#FDF6ED] text-2xl py-48 min-h-screen' style={{'fontFamily': 'Copperplate'}}>
         <RSVP />
       </div>

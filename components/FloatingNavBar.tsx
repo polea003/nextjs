@@ -8,6 +8,7 @@ import ChurchIcon from '@mui/icons-material/Church';
 import CelebrationIcon from '@mui/icons-material/Celebration';
 import FlightIcon from '@mui/icons-material/Flight';
 import CardGiftcardIcon from '@mui/icons-material/CardGiftcard';
+import ScheduleIcon from '@mui/icons-material/Schedule';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import BedIcon from '@mui/icons-material/Bed';
 import Menu from '@mui/material/Menu';
@@ -118,6 +119,12 @@ export function FloatingNavBar({ show, setSelectedView }) {
             <CardGiftcardIcon fontSize="small" />
           </ListItemIcon>
           Registry
+        </MenuItem>
+        <MenuItem onClick={() => { handleClose(); setSelectedView('timeline') }}>
+          <ListItemIcon>
+            <ScheduleIcon fontSize="small" />
+          </ListItemIcon>
+          Timeline
         </MenuItem>
         <MenuItem onClick={() => { handleClose(); setSelectedView('rsvp') }}>
           <ListItemIcon>
